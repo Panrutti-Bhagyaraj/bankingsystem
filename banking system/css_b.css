@@ -1,0 +1,49 @@
+a,#users,#transfer,#history{
+        text-decoration: none;
+        font-size: medium; 
+        font-weight: bold;
+        border: none;
+        color: white;
+        transition: background 0.25s;
+}
+#users:hover,#transfer:hover,#history:hover{
+        transform: none;
+        background: white;
+        color: #0066ff;
+}
+
+#banklogo{
+  opacity: 0.95;
+  transition: opacity,height,width 2s;
+  transition-timing-function: ease-in;
+}
+#banklogo:hover{
+  opacity: 1;
+  transition-timing-function: linear;
+  transform: scale(1.025);
+  border-color: black;
+  border-width: medium;
+}
+
+#big
+{
+  color: #000a1a;
+  font-size: 75px;
+  font-weight: bolder;
+  text-shadow: 2px 5px 5px #001f4d;
+}
+#small{
+  color: #000a1a;
+  font-weight: bolder;
+}
+.card{
+  opacity: 0.93;
+  transition: height,width 1s;
+  transition-timing-function: ease-in-out;
+}
+.card:hover{
+  opacity: 1;
+  transform: scale(1.015);
+  box-shadow: 5px 5px 5px;
+}
+
