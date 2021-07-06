@@ -38,12 +38,16 @@ a,#users,#transfer,#history{
 }
 .card{
   opacity: 0.93;
-  transition: height,width 1s;
-  transition-timing-function: ease-in-out;
+  transition: height,width,box-shadow 0.5s;
+  transition-timing-function: linear;
 }
 .card:hover{
   opacity: 1;
   transform: scale(1.015);
-  box-shadow: 5px 5px 5px;
+  box-shadow: 5px 5px 5px white;
 }
 
+.card-text
+      {
+         font-weight: bolder;  text-shadow: 1px 1px 2px black;
+      }

@@ -15,11 +15,12 @@
             <div class="d-flex  justify-content-center">
                 
                 <a id="users" class="align-content-center m-auto p-3" href="users.php">Users</a>        
-                <a id="transfer" class="align-content-center m-auto p-3" href="transfer.php">Transfer</a>
+                <a id="transfer" class="align-content-center m-auto p-3" href="/web/banking system/">Home</a>
 
             </div>
         </div>
         <div class="container mt-5">
+            <center style="font-size: xx-large; font-weight: bolder; color: white; text-shadow: 1px 1px 2px white;"><p>Recent Transactions</p></center>
             <table class="table" style="border-style: solid;">
                 <tr class="thead-dark">
                 <th>Trancation Id</th>

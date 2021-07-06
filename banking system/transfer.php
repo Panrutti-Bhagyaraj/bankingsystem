@@ -40,92 +40,55 @@
 
             </div>
         </div>
-        <?php
-        require_once "config.php";
-            if(isset($_POST["submit"]))
-            {
-                $sender=$_POST["sender"];
-                $receiver=$_POST["receiver"];
-                $amount=$_POST["amount"];
-                $err = "";
-                if($sender == $receiver)
-                {
-                    $err = "Same sender and Receiver";
-                }
-
-                $sql="select email from users where email='$sender'";
-                $res=mysqli_query($link,$sql);
-                $row=mysqli_fetch_assoc($res);
-                if(!$row)
-                {
-                    $err = "sender not exists";
-                }
-
-                $sql="select email from users where email='$receiver'";
-                $res=mysqli_query($link,$sql);
-                $row=mysqli_fetch_assoc($res);
-                if(!$row)
-                {
-                    $err = "receiver not exists";
-                }
-
-                $sql="select balance from users where email='$sender'";
-                $res=mysqli_query($link,$sql);
-                $row=mysqli_fetch_assoc($res);
-                $sender_balance=$row['balance'];
-                if($amount>$sender_balance)
-                {
-                    $err = "insufficient balance";
-                }
-                if($err == "")
-                {
-                    $sql="select balance from users where email='$receiver'";
-                    $res=mysqli_query($link,$sql);
-                    $row=mysqli_fetch_assoc($res);
-                    $rec_balance=$row['balance']+$amount;
-
-                    
-                    $sender_balance=$sender_balance-$amount;
-
-                    $sql="update users set balance='$sender_balance' where email='$sender'";
-                    $res=mysqli_query($link,$sql);
-                    
-
-                    $sql="update users set balance='$rec_balance' where email='$receiver'";
-                    $res=mysqli_query($link,$sql);
-                    
-
-                    $sql  = "insert into transaction(sender,receiver,amount) values('$sender','$receiver','$amount')";
-                    $res = mysqli_query($link,$sql);
-                    
-                    echo " <script>alert('Transcation Successful...');location.href='history.php';</script>";
-                }
-                else{
-                    echo "<script>alert('$err')</script>";
-                }
-            }
-        ?>
         <div class="container-fluid  mt-5 p-5">
             <center>
-        <form action="transfer.php" method="post">
-            <table>
+        <form action="payment.php" method="post">
+            <?php
+            echo "<table>
                 <tr>
-                    <td><h4>Sender:</h4></td> 
-                    <td><input type="text" name="sender" id="sender"></td>
+                    <td><h4>Sender:</h4></td> ";
+                    
+                    require_once "config.php";
+                    if(!isset($_POST['sender_name']))
+                    {
+                        echo "<script>window.history.back();</script>";
+                    }
+                        $s_id = $_POST['sender_name'];
+                        $sql = "SELECT email from users where id='$s_id'";
+                        $res = mysqli_query($link,$sql);
+                        $row = mysqli_fetch_assoc($res);
+                        $sender = "{$row['email']}";
+                    echo "<td><input class='form-control m-3' style='cursor: not-allowed;' type='text' value='$sender' readonly><input class='form-control' type='text' name='sender' id='sender' value='$sender' style='display:none;'></td>
+                
                 </tr>
 
                 <tr>
                     <td><h4>Receiver:</h4></td>
-                    <td><input type="text" name="receiver" id="receiver"></td>
+                    <td>
+                        <input class='form-control m-3' list='receivers' name='receiver' name='receiver' id='receiver'>
+                        <datalist id='receivers'>";
+    
+                                
+                                $sql = "select email from users where email !='$sender'";
+                                $result = mysqli_query($link,$sql);
+                                while($row = mysqli_fetch_assoc($result))
+                                {
+                                    echo "<option value='{$row['email']}'>";
+                                }
+                                
+                            
+                       echo "</datalist></td>
+                        
                 <tr>   
                     <td><h4>Amount:</h4></td>
-                    <td><input type="text" name="amount" id="amount"></td>
+                    <td><input class='form-control m-3' type='text' name='amount' id='amount'></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><center><input class="btn" type="submit" id="submit" value="Transfer" name="submit"></center></td>
+                    <td colspan='2'><center><input class='btn m-4' type='submit' id='submit' value='Transfer' name='submit'></center></td>
 
                 </tr>
-        </table>
+        </table>";
+        ?>
         </form>
         </center>
         </div>
