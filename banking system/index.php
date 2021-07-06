@@ -17,7 +17,7 @@
             <div class="d-flex  justify-content-center">
                 
                 <a id="users" class="align-content-center m-auto p-3" href="users.php">Users</a>        
-                    <a id="transfer" class="align-content-center m-auto p-3" href="transfer.php">Transfer</a>
+                    
                     <a id="history" class="align-content-center m-auto p-3" href="history.php" >History</a></div>
 
             </div>
@@ -28,11 +28,11 @@
             <div class="m-auto"><h1 id="big"><i class="bi bi-bank"></i> Welcome to the new era of banking.</h1></div>
         </div>
 
-        <div class="container-fluid d-flex pt-5 m-auto" style="background:  #0066ff; height: 400px;">
-            <div class="mr-auto ml-auto mt-5"><div class="card p-2" style="background:#0066ff"><img style="height: 200px;" src="profile.png"><h3 id="small" class="card-text">Verified Accounts</h3></div></div>
-            <div class="mr-auto mt-5"><div class="card p-2" style="background:#0066ff"><img style="height: 200px" src="interest.png"><h3 id="small" class="card-text">High Interest rate</h3></div></div>
-            <div class="mr-auto mt-5"><div class="card p-2" style="background:#0066ff"><img style="height: 200px" src="transaction.png"><h3 id="small" class="card-text">No Transaction limit</h3></div></div>
-            <div class="mr-auto mt-5" ><div class="card p-2" style="background:#0066ff"><img style="height: 200px" src="payment-security.png"><h3 id="small" class="card-text">Secure payments</h3></div></div>
+        <div class="container-fluid d-flex pt-5 m-auto" style="background:  #0066ff;  height: 400px;">
+            <div class="mr-auto ml-auto mt-5"><div class="card p-2" style="background:#0066ff"><img style="height: 200px;" src="profile.png"><h3 id="small" class="card-text" style="font-weight: bolder; color: white; text-shadow: -1px 5px 3px black;">Verified Accounts</h3></div></div>
+            <div class="mr-auto mt-5"><div class="card p-2" style="background:#0066ff"><img style="height: 200px" src="interest.png"><h3 id="small" class="card-text" style="font-weight: bolder; color: white; text-shadow: -1px 5px 3px black;">High Interest rate</h3></div></div>
+            <div class="mr-auto mt-5"><div class="card p-2" style="background:#0066ff"><img style="height: 200px" src="transaction.png"><h3 id="small" class="card-text" style="font-weight: bolder; color: white; text-shadow: -1px 5px 3px black;">No Transaction limit</h3></div></div>
+            <div class="mr-auto mt-5" ><div class="card p-2" style="background:#0066ff"><img style="height: 200px" src="payment-security.png"><h3 id="small" class="card-text" style="font-weight: bolder; color: white; text-shadow: -1px 5px 3px black;">Secure payments</h3></div></div>
         </div>
     </body>
 </html>
